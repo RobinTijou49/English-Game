@@ -647,3 +647,60 @@ button:disabled {
 }
 
 
+svg#wheel {
+  width: 100%;
+  height: 100%;
+  transition: transform 4s cubic-bezier(.15,.7,.1,1);
+}
+
+.arrow {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+}
+
+#spin-btn {
+  margin-top: 30px;
+  padding: 12px 40px;
+  font-size: 1.4em;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #00D9FF, #0066FF);
+  color: white;
+}
+
+#spin-btn:hover {
+  background: linear-gradient(135deg, #00A8FF, #0044CC);
+}
+
+/* Popup */
+.popup.hidden {
+  display: none;
+}
+
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-box {
+  background: white;
+  color: black;
+  padding: 25px 40px;
+  border-radius: 15px;
+  font-size: 1.4em;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}

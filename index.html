@@ -13,12 +13,64 @@
     <p style="font-size: 1.1em; margin: 10px 0; opacity: 0.8;">Test your cybersecurity skills</p>
     <a href="rules.html" class="game-btn" style="margin-bottom: 20px; background: linear-gradient(135deg, #FF006E, #00D9FF); border-color: #FF006E;">📖 Rules</a>
     <div class="menu">
-      <a href="typing.html" class="game-btn">Typing Test</a>
-      <a href="cables.html" class="game-btn">Connect the Cables</a>
-      <a href="fastkey.html" class="game-btn">Fast Key</a>
-      <a href="avoid.html" class="game-btn">Avoid Attacks</a>
-      <a href="maze.html" class="game-btn">Maze</a>
+<h1>🎡 WheelSpin</h1>
+
+  <div class="roulette-wrapper">
+    <svg id="wheel" viewBox="0 0 100 100">
+    <g transform="translate(50,50)">
+
+        <!-- Tranche 1 -->
+        <path d="M0 0 L50 0 A50 50 0 0 1 15.45 47.55 Z" fill="#FF006E"></path>
+        <text transform="rotate(36) translate(28,0) rotate(90)" 
+            fill="white" font-size="6" text-anchor="middle">
+        Typing
+        </text>
+
+        <!-- Tranche 2 -->
+        <path d="M0 0 L15.45 47.55 A50 50 0 0 1 -40.45 29.39 Z" fill="#FFBE0B"></path>
+        <text transform="rotate(108) translate(28,0) rotate(90)" 
+            fill="white" font-size="6" text-anchor="middle">
+        Cables
+        </text>
+
+        <!-- Tranche 3 -->
+        <path d="M0 0 L-40.45 29.39 A50 50 0 0 1 -40.45 -29.39 Z" fill="#3A86FF"></path>
+        <text transform="rotate(180) translate(28,0) rotate(90)" 
+            fill="white" font-size="6" text-anchor="middle">
+        FastKey
+        </text>
+
+        <!-- Tranche 4 -->
+        <path d="M0 0 L-40.45 -29.39 A50 50 0 0 1 15.45 -47.55 Z" fill="#8338EC"></path>
+        <text transform="rotate(252) translate(28,0) rotate(90)" 
+            fill="white" font-size="6" text-anchor="middle">
+        Avoid
+        </text>
+
+        <!-- Tranche 5 -->
+        <path d="M0 0 L15.45 -47.55 A50 50 0 0 1 50 0 Z" fill="#0AFF99"></path>
+        <text transform="rotate(324) translate(28,0) rotate(90)" 
+            fill="white" font-size="6" text-anchor="middle">
+        Maze
+        </text>
+
+    </g>
+    </svg>
+
+    <div class="arrow">▼</div>
+  </div>
+
+  <button id="spin-btn">SPIN!</button>
+
+  <!-- Popup -->
+  <div id="popup" class="popup hidden">
+    <div class="popup-box">
+      <h2 id="popup-text">Game selected!</h2>
     </div>
+  </div>
+
+    <script src="roulette.js"></script>
+
   </div>
 </body>
 </html>
