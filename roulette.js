@@ -4,9 +4,9 @@ const popupText = document.getElementById("popup-text");
 const spinBtn = document.getElementById("spin-btn");
 
 const games = [
-  { name: "Typing Test", file: "typing.html" },
-  { name: "Connect the Cables", file: "cables.html" },
-  { name: "Fast Key", file: "fastkey.html" },
+  { name: "Typing", file: "typing.html" },
+  { name: "Cables", file: "cables.html" },
+  { name: "FastKey", file: "fastkey.html" },
   { name: "Avoid", file: "avoid.html" },
   { name: "Maze", file: "maze.html" }
 ];
@@ -24,17 +24,18 @@ spinBtn.addEventListener("click", () => {
   const offset = sliceAngle / 2;
 
   const targetAngle =
-    360 * 5 + (360 - (randomIndex * sliceAngle + offset));
+    360 * 6 + (360 - (randomIndex * sliceAngle + offset)); // +6 tours pour mobile
 
   wheel.style.transform = `rotate(${targetAngle}deg)`;
+  wheel.style.webkitTransform = `rotate(${targetAngle}deg)`; // iPhone FIX
 
   setTimeout(() => {
-    popup.classList.remove("hidden");
-    popupText.textContent = "🎮 Jeu choisi : " + chosen.name + " !";
+    popup.classList.add("show");
+    popupText.textContent = "🎮 Jeu tiré : " + chosen.name;
 
     setTimeout(() => {
       window.location.href = chosen.file;
     }, 2000);
 
-  }, 4100);
+  }, 4200);
 });
