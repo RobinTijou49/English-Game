@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect the Cables</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    #cables-game {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 30px;
+      padding: 30px;
+      background: #1a1a1a;
+      border-radius: 10px;
+      gap: 80px;
+    }
+    .cable-source, .cable-target {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .cable-source::before {
+      content: "CABLES";
+      font-weight: bold;
+      color: #fff;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+    .cable-target::before {
+      content: "TARGETS";
+      font-weight: bold;
+      color: #fff;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+    .cable {
+      width: 50px;
+      height: 50px;
+      margin: 10px 0;
+      border-radius: 8px;
+      cursor: grab;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      text-align: center;
+      line-height: 50px;
+      color: white;
+      font-weight: bold;
+      user-select: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: all 0.2s ease;
+    }
+    .cable:hover {
+      transform: scale(1.1);
+      cursor: grab;
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+    .cable:active {
+      cursor: grabbing;
+    }
+    .target {
+      width: 50px;
+      height: 50px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 3px dashed rgba(255, 255, 255, 0.3);
+      background: rgba(100, 100, 100, 0.3);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s ease;
+    }
+    .target:hover {
+      border-color: rgba(255, 255, 255, 0.6);
+      background: rgba(100, 100, 100, 0.5);
+    }
+    #timer {
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 1.1em;
+      color: #fff;
+    }
+    #message {
+      margin-top: 20px;
+      font-size: 1.3em;
+      font-weight: bold;
+      min-height: 30px;
+    }
+    #start-btn {
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 1.1em;
+      font-weight: bold;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    #start-btn:hover {
+      background: #45a049;
+      transform: scale(1.05);
+    }
+    #start-btn:disabled {
+      background: #888;
+      cursor: not-allowed;
+      transform: scale(1);
+    }
+    #cables-game {
+      position: relative;
+    }
+    #cable-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <script src="header.js"></script>
+  <div class="container">
+    <h2>Connect all cables before time runs out!</h2>
+    <div id="timer">Time remaining: <span>10</span>s</div>
+    <button id="start-btn" onclick="startGame()">Start Game</button>
+    <div id="cables-game">
+      <canvas id="cable-canvas"></canvas>
+      <div class="cable-source" id="sources"></div>
+      <div class="cable-target" id="targets"></div>
+    </div>
+    <div id="message"></div>
+    <button onclick="window.location.href='index.html'">Back</button>
+  </div>
+  <script src="confetti.js"></script>
+  <script src="cables.js"></script>
+</body>
+</html>

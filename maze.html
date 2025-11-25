@@ -1,0 +1,101 @@
+<!--
+  ~ This file is part of htmlMaze	.
+  ~
+  ~ htmlMaze is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ htmlMaze is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with htmlMaze.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="maze.js"></script>
+    <title>Cybersecurity Maze</title>
+    <style>
+      #game-controls {
+        margin: 20px 0;
+        text-align: center;
+      }
+      #timer {
+        font-size: 1.3em;
+        color: var(--accent);
+        font-weight: bold;
+        margin: 15px 0;
+      }
+      #message {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin: 15px 0;
+        min-height: 30px;
+      }
+      #startBtn, #backBtn {
+        margin: 10px 5px;
+      }
+      #mobile-controls {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(3, 60px);
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+      }
+      .arrow-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5em;
+        font-weight: bold;
+        background: linear-gradient(135deg, #3EE4FF, #37dbba);
+        color: #0A0E27;
+        border: 2px solid #3EE4FF;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .arrow-btn:active {
+        transform: scale(0.95);
+        background: #FF006E;
+      }
+      .arrow-btn:hover {
+        box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+      }
+      #up-btn { grid-column: 2; }
+      #left-btn { grid-column: 1; grid-row: 2; }
+      #down-btn { grid-column: 2; grid-row: 2; }
+      #right-btn { grid-column: 3; grid-row: 2; }
+    </style>
+  </head>
+  <body onload="onLoad();">
+    <script src="header.js"></script>
+    <div class="container">
+      <h2>Cybersecurity Maze</h2>
+      <div id="rules" style="margin-bottom: 20px;">Use the arrow keys or ZQSD to navigate. Reach the green zone before time runs out!</div>
+      <div id="timer">Time remaining: <span>30</span>s</div>
+      <div id="game-controls">
+        <button id="startBtn" onclick="startGame()">Start</button>
+        <button id="backBtn" onclick="window.location.href='index.html'">Back</button>
+      </div>
+      <canvas id="mainForm"></canvas>
+      <div id="mobile-controls">
+        <button class="arrow-btn" id="up-btn" onclick="movePlayer(38)">⬆️</button>
+        <button class="arrow-btn" id="left-btn" onclick="movePlayer(37)">⬅️</button>
+        <button class="arrow-btn" id="down-btn" onclick="movePlayer(40)">⬇️</button>
+        <button class="arrow-btn" id="right-btn" onclick="movePlayer(39)">➡️</button>
+      </div>
+      <div id="message"></div>
+    </div>
+  </body>
+  <script src="confetti.js"></script>
+  <script src="maze.js"></script>
+</html>

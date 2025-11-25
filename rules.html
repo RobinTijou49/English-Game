@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rules - Cyber Clash</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .rules-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .rule-section {
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 5px;
+      box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+    }
+    .rule-section h3 {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0;
+      text-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
+    }
+    .rule-section p {
+      line-height: 1.6;
+      color: var(--primary);
+    }
+    .rule-section ul {
+      color: var(--primary);
+      line-height: 1.8;
+    }
+    .rule-section li {
+      margin: 10px 0;
+    }
+    .emoji {
+      font-size: 1.5em;
+      margin-right: 10px;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <script src="header.js"></script>
+  <div class="container rules-container">
+    <h1>📖 Cyber Clash Rules 📖</h1>
+    <p style="text-align: center; font-size: 1.1em; margin: 20px 0;">Learn the rules of each mini-game</p>
+
+    <div class="rule-section">
+      <h3><span class="emoji">⌨️</span>Typing Test</h3>
+      <p><strong>Objective:</strong> Type the displayed phrase before time runs out.</p>
+      <ul>
+        <li>⏱️ You have <strong>30 seconds</strong> to type the complete phrase</li>
+        <li>📝 Each game displays a different phrase about cybersecurity</li>
+        <li>✅ The phrase must be typed <strong>exactly</strong> (respect uppercase and lowercase)</li>
+        <li>🎯 Win by finishing the phrase before the time limit</li>
+      </ul>
+    </div>
+
+    <div class="rule-section">
+      <h3><span class="emoji">🔌</span>Connect the Cables</h3>
+      <p><strong>Objective:</strong> Connect all cables to their correct targets.</p>
+      <ul>
+        <li>🎨 5 cables of different colors to connect</li>
+        <li>🎯 Each cable must be connected to the target of the same color</li>
+        <li>🚫 A wrong connection displays the cable in red briefly</li>
+        <li>✅ A correct connection displays the cable in green</li>
+        <li>⏱️ You have <strong>20 seconds</strong> to connect them all</li>
+        <li>🖱️ Drag the cables to the targets (works on mobile too)</li>
+      </ul>
+    </div>
+
+    <div class="rule-section">
+      <h3><span class="emoji">⚡</span>Fast Key</h3>
+      <p><strong>Objective:</strong> Press the displayed key as fast as possible.</p>
+      <ul>
+        <li>🔤 A letter appears on the screen</li>
+        <li>⌨️ Press the corresponding key (keyboard or touch buttons)</li>
+        <li>🎯 You must earn <strong>20 points</strong> to win</li>
+        <li>⏱️ You have <strong>15 seconds</strong> to reach 20 points</li>
+        <li>🎪 Letters change randomly after each correct press</li>
+      </ul>
+    </div>
+
+    <div class="rule-section">
+      <h3><span class="emoji">🛡️</span>Avoid Attacks</h3>
+      <p><strong>Objective:</strong> Protect your system by avoiding cyberattacks.</p>
+      <ul>
+        <li>🔒 You control a padlock (your protection)</li>
+        <li>⬅️➡️ Use arrow keys to move horizontally</li>
+        <li>🦠 Viruses, malware, and phishing attempts fall from the sky</li>
+        <li>💀 If an attack touches you, it's game over</li>
+        <li>⏱️ You must <strong>survive for 30 seconds</strong> to win</li>
+        <li>🎨 Different attacks: VIRUS (red), MALWARE (yellow), PHISH (blue)</li>
+      </ul>
+    </div>
+
+    <div class="rule-section">
+      <h3><span class="emoji">🌀</span>Maze</h3>
+      <p><strong>Objective:</strong> Navigate a randomly generated maze.</p>
+      <ul>
+        <li>🗺️ A 10x10 maze is randomly generated each game</li>
+        <li>🔒 You play a security agent (cyan padlock)</li>
+        <li>⭐ Reach the magenta pink star to win</li>
+        <li>⏱️ You have <strong>30 seconds</strong> to escape the maze</li>
+        <li>⬆️⬇️⬅️➡️ Use arrow keys or WASD to move</li>
+        <li>📱 On mobile, use the arrow buttons below the maze</li>
+      </ul>
+    </div>
+
+    <div class="rule-section">
+      <h3><span class="emoji">🏆</span>General Tips</h3>
+      <ul>
+        <li>⏱️ Each game has a <strong>timer</strong> on screen - respect it!</li>
+        <li>🎯 You win by completing the objective before the time limit</li>
+        <li>❌ You lose if time runs out before you succeed</li>
+        <li>🔄 You can play as many times as you want</li>
+        <li>📚 Each game reinforces your cybersecurity knowledge</li>
+        <li>📱 All games are compatible with desktop and mobile</li>
+      </ul>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="index.html" class="game-btn back-btn">← Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

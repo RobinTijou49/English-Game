@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avoid Attacks - Cybersecurity</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { text-align: center; background: #121212; color: white; font-family: 'Courier New', monospace; }
+    
+    #game-container { 
+      margin-top: 20px; 
+      position: relative; 
+      width: 400px; 
+      height: 500px; 
+      margin-left: auto; 
+      margin-right: auto; 
+      background: linear-gradient(135deg, #1a1f3a 0%, #0d0f1a 100%);
+      border: 3px solid #3EE4FF;
+      overflow: hidden; 
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(62, 228, 255, 0.4), inset 0 0 20px rgba(62, 228, 255, 0.1);
+    }
+    
+    #game-timer { 
+      position: absolute; 
+      top: 10px; 
+      left: 10px; 
+      font-weight: bold; 
+      font-size: 1.2em; 
+      color: #00FF41;
+      z-index: 100; 
+      background: rgba(0, 0, 0, 0.8);
+      padding: 8px 12px; 
+      border-radius: 5px;
+      border: 1px solid #00FF41;
+      text-shadow: 0 0 10px #00FF41;
+    }
+    
+    #player { 
+      width: 60px; 
+      height: 60px; 
+      position: absolute; 
+      bottom: 10px; 
+      left: 170px; 
+      background: linear-gradient(135deg, #00D9FF 0%, #3EE4FF 100%);
+      border-radius: 8px; 
+      transition: left 0.1s; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      font-size: 2.5em;
+      border: 2px solid #00FF41;
+      box-shadow: 0 0 15px rgba(62, 228, 255, 0.6), inset 0 0 10px rgba(62, 228, 255, 0.3);
+    }
+    
+    #player::before { content: '🔒'; }
+    
+    .attack { 
+      width: 50px; 
+      height: 50px; 
+      position: absolute; 
+      top: 0; 
+      border-radius: 8px; 
+      font-size: 1.8em;
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      color: #fff; 
+      font-weight: bold;
+      border: 2px solid;
+      box-shadow: 0 0 10px currentColor;
+      animation: attackPulse 0.5s infinite alternate;
+    }
+    
+    .attack.virus {
+      background: linear-gradient(135deg, #FF0040 0%, #FF4060 100%);
+      border-color: #FF00FF;
+      box-shadow: 0 0 15px rgba(255, 0, 64, 0.8);
+    }
+    
+    .attack.malware {
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      border-color: #FF6600;
+      box-shadow: 0 0 15px rgba(255, 165, 0, 0.8);
+    }
+    
+    .attack.phish {
+      background: linear-gradient(135deg, #00A8FF 0%, #0066FF 100%);
+      border-color: #00FF00;
+      box-shadow: 0 0 15px rgba(0, 168, 255, 0.8);
+    }
+    
+    @keyframes attackPulse {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.1);
+      }
+    }
+    
+    #score { margin-top: 15px; font-weight: bold; color: #00D9FF; }
+    #rules { margin-top: 15px; font-size: 0.9em; color: #37dbba; }
+    #message { margin-top: 15px; font-size: 1.3em; font-weight: bold; transition: transform 0.5s, opacity 0.5s; }
+    .win { color: #00FF41; text-shadow: 0 0 10px #00FF41; transform: scale(1.2); }
+    .lose { color: #FF006E; text-shadow: 0 0 10px #FF006E; transform: scale(1.2); }
+    button { margin-top: 10px; padding: 10px 20px; }
+  </style>
+</head>
+<body>
+  <script src="header.js"></script>
+  <div class="container">
+    <h2>Avoid Attacks!</h2>
+    <div id="rules">Move your shield with the left/right arrow keys. Avoid all attacks and survive 30 seconds to win!</div>
+    <div id="timer">Time remaining: <span>30</span>s</div>
+    <div id="game-container">
+      <div id="game-timer">30s</div>
+      <div id="player"></div>
+    </div>
+    <div id="mobile-controls">
+      <button id="btn-left">⬅️</button>
+      <button id="btn-right">➡️</button>
+    </div>
+
+    <div id="score">Time survived: 0 s</div>
+    <div id="message"></div>
+    <button onclick="startGame()">Start</button>
+    <button onclick="window.location.href='index.html'">Back</button>
+  </div>
+  <script src="confetti.js"></script>
+  <script src="avoid.js"></script>
+</body>
+</html>

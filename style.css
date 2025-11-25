@@ -1,0 +1,649 @@
+/* Thème Cybersécurité */
+:root {
+  --primary: #3EE4FF;
+  --secondary: #4400ff;
+  --accent: #37dbba;
+  --dark-bg: #0A0E27;
+  --card-bg: #1a1f3a;
+  --border: #3EE4FF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Courier New', monospace;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, #1a0033 100%);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 65, 0.03) 0px,
+    rgba(0, 255, 65, 0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+body.home #mobile-controls {
+  display: none !important;
+}
+
+/* Header Navigation */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.95) 0%, rgba(26, 31, 58, 0.95) 100%);
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  box-shadow: 0 0 20px rgba(62, 228, 255, 0.3);
+  z-index: 1000;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+  color: var(--primary);
+  text-shadow: 0 0 15px rgba(62, 228, 255, 0.5);
+  letter-spacing: 2px;
+  flex: 1;
+  text-align: left;
+}
+
+.header-nav {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.header-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #3EE4FF 0%, #37dbba 100%);
+  color: #0A0E27;
+  text-decoration: none;
+  border: 2px solid var(--primary);
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s;
+  font-size: 0.95em;
+}
+
+.header-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(62, 228, 255, 0.6);
+  background: linear-gradient(135deg, #37dbba 0%, #3EE4FF 100%);
+}
+
+.header-btn:active {
+  transform: translateY(0);
+}
+
+.container {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 0;
+  border: 2px solid var(--border);
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 255, 65, 0.2), inset 0 0 30px rgba(0, 255, 65, 0.05);
+  position: relative;
+  max-width: 900px;
+  z-index: 1;
+  margin-top: 70px;
+}
+
+.container::before {
+  content: '🔐 1000 LINKS 🔐';
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dark-bg);
+  padding: 5px 20px;
+  border: 2px solid var(--border);
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 0.8em;
+  letter-spacing: 2px;
+}
+
+.container h1,
+.container h2 {
+  color: var(--primary);
+  margin: 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.8em;
+  text-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+}
+
+.menu {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.game-btn {
+  display: inline-block;
+  padding: 15px 25px;
+  background: linear-gradient(135deg, #3EE4FF 0%, #37dbba 100%);
+  color: #0A0E27;
+  text-decoration: none;
+  border-radius: 0;
+  border: 2px solid var(--primary);
+  font-weight: bold;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--secondary);
+  transition: left 0.3s;
+  z-index: -1;
+}
+
+.game-btn:hover {
+  border-color: var(--secondary);
+  box-shadow: 0 0 20px rgba(255, 0, 110, 0.5), inset 0 0 10px rgba(0, 255, 65, 0.2);
+  transform: translateY(-3px);
+}
+
+.game-btn:hover::before {
+  left: 0;
+}
+
+/* Styles Typing Test & Cables communs */
+textarea {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 20px;
+  background: var(--dark-bg);
+  border: 2px solid var(--border);
+  color: var(--primary);
+  font-family: 'Courier New', monospace;
+  padding: 10px;
+  border-radius: 0;
+  box-shadow: inset 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+textarea::placeholder {
+  color: rgba(0, 255, 65, 0.5);
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: inset 0 0 20px rgba(0, 255, 65, 0.2), 0 0 20px rgba(0, 255, 65, 0.3);
+  border-color: var(--accent);
+}
+
+button {
+  background: linear-gradient(135deg, #3EE4FF 0%, #37dbba 100%);
+  color: #0A0E27;
+  border: 2px solid var(--primary);
+  padding: 12px 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.3s;
+  font-family: 'Courier New', monospace;
+}
+
+button:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  background: gray;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+#timer {
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1.3em;
+  margin: 15px 0;
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
+}
+
+#message {
+  color: var(--primary);
+  font-size: 1.2em;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+#result {
+  background: var(--card-bg);
+  padding: 20px;
+  border: 2px solid var(--border);
+  border-radius: 0;
+  margin: 20px 0;
+}
+
+#text-target {
+  background: var(--dark-bg);
+  padding: 20px;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  border-radius: 0;
+  font-size: 1.1em;
+  margin: 15px 0;
+  min-height: 60px;
+  box-shadow: inset 0 0 10px rgba(0, 217, 255, 0.1);
+}
+
+.hidden { 
+  display: none; 
+}
+
+/* Media Queries - Responsive Design */
+@media (max-width: 768px) {
+  .site-header {
+    height: 60px;
+    padding: 0 15px;
+  }
+
+  .site-header h1 {
+    font-size: 1.2em;
+    margin: 0;
+  }
+
+  .header-nav {
+    gap: 10px;
+  }
+
+  .header-btn {
+    padding: 8px 15px;
+    font-size: 0.85em;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    min-height: auto;
+  }
+
+  .container {
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 100%;
+    margin: 10px auto;
+  }
+
+  .container::before {
+    font-size: 0.7em;
+    padding: 3px 15px;
+    top: -20px;
+  }
+
+  .container h1,
+  .container h2 {
+    font-size: 1.4em;
+    margin: 15px 0;
+  }
+
+  .menu {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .game-btn {
+    padding: 12px 20px;
+    font-size: 0.9em;
+  }
+
+  #timer {
+    font-size: 1.1em;
+    margin: 10px 0;
+  }
+
+  #message {
+    font-size: 1em;
+  }
+
+  textarea {
+    height: 60px;
+    font-size: 1em;
+    padding: 8px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    margin: 5px 2px;
+  }
+
+  #text-target {
+    font-size: 0.95em;
+    padding: 15px;
+    min-height: 50px;
+  }
+
+  /* Keyboard mobile */
+  .keyboard-row {
+    gap: 3px;
+  }
+
+  .key-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 0.8em;
+    padding: 2px;
+    margin: 2px;
+  }
+
+  /* Canvas mobile */
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #game-container {
+    width: 100% !important;
+    height: 400px !important;
+    max-width: 400px;
+    margin: 0 auto !important;
+  }
+
+  #mobile-controls {
+    margin-top: 15px;
+    grid-template-columns: repeat(3, 50px);
+    gap: 8px;
+  }
+
+  .arrow-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2em;
+  }
+
+  /* Avoid game - Tablet */
+  #game-container {
+    width: 100% !important;
+    height: 380px !important;
+    max-width: 380px;
+  }
+
+  #player {
+    width: 50px;
+    height: 50px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+  }
+
+  .attack {
+    width: 45px;
+    height: 45px;
+    font-size: 1.6em;
+  }
+
+  /* Cables game */
+    #cables-game {
+    display: flex;
+    flex-direction: row;    /* force horizontal layout */
+    flex-wrap: nowrap;      /* prevent stacking vertical */
+    gap: 24px;
+    align-items: center;
+    overflow-x: auto;       /* allow horizontal scroll if too narrow */
+    -webkit-overflow-scrolling: touch;
+    padding: 16px;
+    }
+
+    .cable-source, .cable-target {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 0 0 auto; /* fixed columns, don't wrap */
+    align-items: center;
+    min-width: 80px;
+    }
+
+    #cable-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    }
+  .cable, .target {
+    width: 40px;
+    height: 40px;
+    margin: 8px 0;
+    touch-action: none;
+    -ms-touch-action: none;
+    cursor: grab;
+  }
+
+  /* Avoid game */
+  #game-timer {
+    font-size: 1em;
+    padding: 3px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    height: 50px;
+    padding: 0 10px;
+  }
+
+  .site-header h1 {
+    font-size: 1em;
+    margin: 0;
+  }
+
+  .header-nav {
+    gap: 8px;
+  }
+
+  .header-btn {
+    padding: 6px 12px;
+    font-size: 0.75em;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .container h1,
+  .container h2 {
+    font-size: 1.2em;
+  }
+
+  .menu {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .game-btn {
+    padding: 10px 15px;
+    font-size: 0.85em;
+  }
+
+  button {
+    padding: 8px 15px;
+    font-size: 0.8em;
+  }
+
+  /* Avoid game - Mobile */
+  #game-container {
+    width: 100% !important;
+    height: 350px !important;
+    max-width: 350px;
+    margin: 15px auto;
+  }
+
+  #player {
+    width: 45px;
+    height: 45px;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.8em;
+  }
+
+  #game-timer {
+    font-size: 0.9em;
+    padding: 5px 8px;
+  }
+
+  .attack {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+  }
+
+  .key-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.7em;
+  }
+
+  .keyboard-row {
+    gap: 2px;
+  }
+
+  #game-container {
+    height: 350px !important;
+    margin: 0 auto;
+  }
+
+  #mobile-controls {
+    grid-template-columns: repeat(3, 45px);
+    gap: 5px;
+  }
+
+  .arrow-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1em;
+  }
+
+  #cables-game {
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .cable, .target {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9em;
+  }
+
+  textarea {
+    height: 50px;
+    font-size: 0.9em;
+  }
+
+  #text-target {
+    font-size: 0.85em;
+    padding: 10px;
+  }
+
+  #timer {
+    font-size: 0.95em;
+  }
+
+  #message {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 10px;
+  }
+
+  .container h1,
+  .container h2 {
+    font-size: 1em;
+  }
+
+  .game-btn {
+    padding: 8px 12px;
+    font-size: 0.75em;
+    margin: 5px 2px;
+  }
+
+  #game-container {
+    height: 300px !important;
+    max-width: 300px;
+  }
+
+  #mobile-controls {
+    grid-template-columns: repeat(3, 40px);
+  }
+
+  .arrow-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9em;
+    padding: 2px;
+  }
+
+  .key-btn {
+    width: 25px;
+    height: 25px;
+    font-size: 0.6em;
+  }
+
+  .cable, .target {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8em;
+  }
+
+  textarea {
+    height: 40px;
+    font-size: 0.8em;
+  }
+}
+
+

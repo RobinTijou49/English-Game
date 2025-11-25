@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typing Test - 30s</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script src="header.js"></script>
+  <div class="container">
+    <h2>Typing Test – 30 seconds</h2>
+    <div id="timer">Time remaining: <span>30</span>s</div>
+    <div id="text‑target">
+      Type this text before time runs out!
+    </div>
+    <textarea id="input‑field" placeholder="Start typing here…" disabled></textarea>
+    <div id="result" class="hidden">
+      <p id="message"></p>
+      <button id="restart">Try Again</button>
+    </div>
+    <button id="start">Start</button>
+    <button onclick="window.location.href='index.html'">Back</button>
+
+  </div>
+  <script src="confetti.js"></script>
+  <script src="typing.js"></script>
+</body>
+</html>

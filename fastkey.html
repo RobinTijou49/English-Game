@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fast Key</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { text-align: center; }
+    #game-container { margin-top: 50px; }
+    #target-key {
+      font-size: 3em;
+      margin: 20px 0;
+      display: inline-block;
+      padding: 20px;
+      border: 2px solid #000;
+      border-radius: 10px;
+      background: #f0f0f0;
+    }
+    #timer { font-weight: bold; font-size: 1.2em; }
+    #score { font-weight: bold; margin-top: 15px; }
+    button { margin-top: 20px; padding: 10px 20px; }
+    
+    /* Virtual keyboard */
+    #virtual-keyboard {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+    .keyboard-row {
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .key-btn {
+      width: 40px;
+      height: 40px;
+      padding: 5px;
+      font-size: 1em;
+      font-weight: bold;
+      border: 2px solid #333;
+      border-radius: 5px;
+      background: #e0e0e0;
+      cursor: pointer;
+      transition: all 0.1s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .key-btn:active {
+      background: #b0b0b0;
+      transform: scale(0.95);
+    }
+    .key-btn:hover {
+      background: #d0d0d0;
+    }
+    .key-btn.target {
+      background: #4CAF50;
+      color: white;
+      border-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <script src="header.js"></script>
+  <div class="container" id="game-container">
+    <h2>Press the key fast! You need 20 points to win</h2>
+    <div id="timer">Time remaining: <span>15</span>s</div>
+    <div id="target-key">A</div>
+    <div id="score">Score: 0</div>
+    <div id="message"></div>
+    <div id="virtual-keyboard"></div>
+    <button onclick="startGame()">Start</button>
+    <button onclick="window.location.href='index.html'">Back</button>
+  </div>
+  <script src="confetti.js"></script>
+  <script src="fastkey.js"></script>
+</body>
+</html>
