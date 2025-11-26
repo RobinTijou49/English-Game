@@ -7,15 +7,16 @@ const gameTimer = document.getElementById('game-timer');
 
 let containerWidth = 400;
 let containerHeight = 500;
-let playerWidth = 60;
-let playerX = 170;
+let playerWidth = 40;        // Réduit de 60px
+let playerX = 180;
 let moveSpeed = 20;
+let mobileMoveSpeed = 8;     // Vitesse plus lente pour les boutons mobiles
 let attacks = [];
 let attackInterval;
 let gameInterval;
 let gameActive = false;
 let timeSurvived = 0;
-const GAME_TIME = 30; // seconds
+const GAME_TIME = 30;
 
 // Attack types
 const attackTypes = [
@@ -53,20 +54,30 @@ document.addEventListener('keydown', (e) => {
 const btnLeft = document.getElementById('btn-left');
 const btnRight = document.getElementById('btn-right');
 
+let isLeftPressed = false;
+let isRightPressed = false;
+
 if (btnLeft && btnRight) {
-  btnLeft.addEventListener('touchstart', () => {
-    if (!gameActive) return;
-    playerX -= moveSpeed;
-    if (playerX < 0) playerX = 0;
-    player.style.left = playerX + 'px';
+  // Left button
+  btnLeft.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    isLeftPressed = true;
+  });
+  
+  btnLeft.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    isLeftPressed = false;
   });
 
-  btnRight.addEventListener('touchstart', () => {
-    if (!gameActive) return;
-    playerX += moveSpeed;
-    if (playerX > containerWidth - playerWidth)
-      playerX = containerWidth - playerWidth;
-    player.style.left = playerX + 'px';
+  // Right button
+  btnRight.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    isRightPressed = true;
+  });
+  
+  btnRight.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    isRightPressed = false;
   });
 }
 
@@ -77,26 +88,44 @@ function spawnAttack() {
   atk.classList.add('attack', type.type);
   atk.textContent = type.emoji;
   atk.dataset.type = type.type;
-  atk.style.left = Math.floor(Math.random() * (containerWidth - 50)) + 'px';
+  atk.style.left = Math.floor(Math.random() * (containerWidth - 35)) + 'px';
   atk.style.top = '0px';
+  atk.style.width = '35px';    // Réduit de 50px
+  atk.style.height = '35px';   // Réduit de 50px
+  atk.style.fontSize = '20px'; // Réduit aussi le emoji
   gameContainer.appendChild(atk);
   attacks.push(atk);
 }
 
 // Game loop (refresh attacks)
 function gameLoop() {
+  // Handle continuous button movement
+  if (gameActive) {
+    if (isLeftPressed && playerX > 0) {
+      playerX -= mobileMoveSpeed;  // Utilise mobileMoveSpeed au lieu de moveSpeed
+      if (playerX < 0) playerX = 0;
+      player.style.left = playerX + 'px';
+    }
+    if (isRightPressed && playerX < containerWidth - playerWidth) {
+      playerX += mobileMoveSpeed;  // Utilise mobileMoveSpeed au lieu de moveSpeed
+      if (playerX > containerWidth - playerWidth)
+        playerX = containerWidth - playerWidth;
+      player.style.left = playerX + 'px';
+    }
+  }
+
   attacks.forEach((atk, index) => {
     let top = parseInt(atk.style.top);
-    top += 5; // falling speed
+    top += 2; // falling speed
     atk.style.top = top + 'px';
 
-    // Collision
+    // Collision avec hitbox réduite
     let atkX = parseInt(atk.style.left);
     let atkY = top;
 
-    if (atkY + 50 >= containerHeight - 10 &&
-        atkX < playerX + playerWidth &&
-        atkX + 50 > playerX) {
+    if (atkY + 25 >= containerHeight - 10 &&
+        atkX + 5 < playerX + playerWidth - 5 &&
+        atkX + 30 > playerX + 5) {
       endGame(false);
     }
 
@@ -112,10 +141,12 @@ function gameLoop() {
 function startGame() {
   updateGameDimensions();
 
-  attacks.forEach(a => gameContainer.removeChild(a));
+attacks.forEach(a => gameContainer.removeChild(a));
   attacks = [];
   playerX = (containerWidth - playerWidth) / 2;
   player.style.left = playerX + 'px';
+  player.style.width = '40px';    // Réduit de 60px
+  player.style.height = '40px';   // Réduit de 60px
   timeSurvived = 0;
   gameActive = true;
   messageDiv.textContent = '';
@@ -123,8 +154,9 @@ function startGame() {
   scoreDiv.textContent = 'Time survived: 0 s';
   timerSpan.textContent = GAME_TIME;
 
-  attackInterval = setInterval(spawnAttack, 800);
+  attackInterval = setInterval(spawnAttack, 1200); // Augmenté de 800ms à 1200ms
   gameInterval = setInterval(gameLoop, 1000 / 60);
+
 
   const countdown = setInterval(() => {
     if (!gameActive) {

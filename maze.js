@@ -5,7 +5,7 @@ let mazeHeight;
 let mazeWidth;
 let player;
 let gameActive = false;
-let gameTimer = 30;
+let gameTimer = 20;
 let timerInterval;
 let messageDiv;
 let timerSpan;
