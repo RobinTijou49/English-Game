@@ -70,9 +70,12 @@
           <li>Choose one action :</li>
           <ul>
             <li>✔️ <strong>Advance</strong> – Play a Progress card.</li>
-            <li>🔥 <strong>Attack</strong> – Play an Incident card targeting another player (cannot target immune players).</li>
-            <li>🛡️ <strong>Defend</strong> – Play a Countermeasure to block one incident.</li>
-            <li>💠 <strong>Activate a Special Card</strong> – Requires scanning a QR + completing a mini-game. Fail = discard one card + end turn.</li>
+            <li>🔥 <strong>Attack</strong> – Play an Incident card to block another player from using Advancement cards.
+Only Network Slowdown limits Advancement cards to 50 units.
+You cannot target a player who is immune with a Special Card.
+</li>
+            <li>🛡️ <strong>Defend</strong> – Play a Countermeasure to block one incident.  You may defend only one incident per turn.</li>
+            <li>💠 <strong>Activate a Special Card</strong> – Requires scanning a QR + completing a mini-game. Fail = discard one card + end turn. Grant permanent immunity to specific incidents</li>
             <li>🚮 <strong>Discard</strong> – If you cannot or don’t want to play.</li>
           </ul>
         </ul>
@@ -185,14 +188,14 @@
         <em>Cancelled by Zero-Trust.</em></li>
 
         <li><strong>Data Leak :</strong><br>
-        Each player reveals one card to all opponents.<br>
-        <em>Cancelled by Continuous Replication.</em></li>
+         Each player must swap their entire hand with the player to their left.<br>
+        <em> Cancelled by Continuous Replication.</em></li>
 
         <li><strong>Emergency Update :</strong><br>
         Each player must play an additional Progress card unless blocked by an incident.</li>
 
         <li><strong>Malware Spread :</strong><br>
-        Each player discards their last played Progress card.<br>
+        Each player moves back 75 units.<br>
         <em>Cancelled by Super Antivirus.</em></li>
       </ul>
 
