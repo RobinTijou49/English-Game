@@ -98,6 +98,107 @@
       </ul>
     </div>
 
+        <div class="rule-section">
+      <h3><span class="emoji">🃏</span>Card Effects</h3>
+
+      <h4>Progress Cards (blue cards)</h4>
+      <p>Play during your turn:</p>
+      <ul>
+        <li>+25 units</li>
+        <li>+50 units</li>
+        <li>+75 units</li>
+        <li>+100 units</li>
+        <li>+200 units</li>
+      </ul>
+      <p>Each adds the corresponding amount to your network stability.</p>
+
+      <hr>
+
+      <h4>Incident Cards (red cards)</h4>
+      <p>Play these during your turn targeting an opponent.</p>
+      <table style="width:100%; border-collapse: collapse; margin-top:10px;">
+        <tr style="border-bottom:1px solid var(--border);">
+          <th style="padding:8px; color:var(--accent); text-align:left;">Incident</th>
+          <th style="padding:8px; color:var(--accent); text-align:left;">Countered by</th>
+        </tr>
+        <tr><td style="padding:8px;">Phishing Attack</td><td style="padding:8px;">Anti-Phishing Training</td></tr>
+        <tr><td style="padding:8px;">DDoS Attack</td><td style="padding:8px;">Network Filtering</td></tr>
+        <tr><td style="padding:8px;">Virus</td><td style="padding:8px;">Antivirus</td></tr>
+        <tr><td style="padding:8px;">Ransomware</td><td style="padding:8px;">Cloud Backup</td></tr>
+        <tr><td style="padding:8px;">Network Slowdown</td><td style="padding:8px;">Traffic Optimization</td></tr>
+      </table>
+
+      <hr>
+
+      <h4>Countermeasure Cards (green cards)</h4>
+      <p>Used to block matching incidents:</p>
+      <ul>
+        <li>Anti-Phishing Training → blocks <strong>Phishing Attack</strong></li>
+        <li>Network Filtering → blocks <strong>DDoS Attack</strong></li>
+        <li>Antivirus → blocks <strong>Virus</strong></li>
+        <li>Cloud Backup → blocks <strong>Ransomware</strong></li>
+        <li>Traffic Optimization → blocks <strong>Network Slowdown</strong></li>
+      </ul>
+
+      <hr>
+
+      <h4>Special Cards (Immunities yellow cards)</h4>
+      <p>
+        Special Cards give permanent immunity to specific incidents and may be played as countermeasures.<br>
+        Activation requires scanning a QR code + succeeding in a mini-game.
+      </p>
+
+      <table style="width:100%; border-collapse: collapse; margin-top:10px;">
+        <tr style="border-bottom:1px solid var(--border);">
+          <th style="padding:8px; color:var(--accent); text-align:left;">Special Card</th>
+          <th style="padding:8px; color:var(--accent); text-align:left;">Provides immunity to</th>
+        </tr>
+        <tr>
+          <td style="padding:8px;">Resilient Infrastructure</td>
+          <td style="padding:8px;">DDoS Attack, Network Slowdown</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;">Zero-Trust</td>
+          <td style="padding:8px;">Phishing Attack, Global Breach</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;">Continuous Replication</td>
+          <td style="padding:8px;">Ransomware, Data Leak</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;">Super Antivirus</td>
+          <td style="padding:8px;">Virus, Global Malware</td>
+        </tr>
+      </table>
+
+      <hr>
+
+      <h4>Major Incident Cards (Hard Mode Only purple cards)</h4>
+      <p>These activate automatically when drawn:</p>
+
+      <ul>
+        <li><strong>Datacenter Blackout :</strong><br>
+        Players cannot use +100 or +200 progress cards next turn.</li>
+
+        <li><strong>Global Breach :</strong><br>
+        Each player passes one card to the player on their right.<br>
+        <em>Cancelled by Zero-Trust.</em></li>
+
+        <li><strong>Data Leak :</strong><br>
+        Each player reveals one card to all opponents.<br>
+        <em>Cancelled by Continuous Replication.</em></li>
+
+        <li><strong>Emergency Update :</strong><br>
+        Each player must play an additional Progress card unless blocked by an incident.</li>
+
+        <li><strong>Global Malware :</strong><br>
+        Each player discards their last played Progress card.<br>
+        <em>Cancelled by Super Antivirus.</em></li>
+      </ul>
+
+    </div>
+
+
     <h1>📖 Minigame Rules 📖</h1>
     <p style="text-align: center; font-size: 1.1em; margin: 20px 0;">Learn the rules of each mini-game</p>
 
