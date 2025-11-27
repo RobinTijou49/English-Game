@@ -5,12 +5,12 @@ let timerSpan = document.querySelector('#timer span');
 let messageDiv = document.getElementById('message');
 let virtualKeyboardDiv = document.getElementById('virtual-keyboard');
 
-let timeLeft = 15;
+let timeLeft = 20;
 let score = 0;
 let timerInterval;
 let gameActive = false;
 let currentKey = '';
-const TARGET_SCORE = 20; // Minimum score to win
+const TARGET_SCORE = 15; // Minimum score to win
 
 // Create virtual keyboard
 function createVirtualKeyboard() {
@@ -80,7 +80,7 @@ function randomKey() {
 
 function startGame() {
   score = 0;
-  timeLeft = 15;
+  timeLeft = 20;
   gameActive = true;
   scoreDiv.textContent = `Score: ${score}`;
   messageDiv.textContent = '';
